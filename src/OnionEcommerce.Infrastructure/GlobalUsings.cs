@@ -1,0 +1,16 @@
+﻿global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.DependencyInjection.Extensions;
+global using Raven.Client.Documents;
+global using Microsoft.Extensions.Options;
+global using OnionEcommerce.Infrastructure.CrossCutting.Options;
+global using OnionEcommerce.Domain.Core.Interfaces.Repositories;
+global using OnionEcommerce.Domain.Models;
+global using Raven.Client.Documents.Session;
+global using OnionEcommerce.Infrastructure.Data.Repositories;
+global using OnionEcommerce.Domain.Core.Interfaces.Services;
+global using OnionEcommerce.Domain.Services.Implementations;
+global using OnionEcommerce.Application.DTOs;
+global using OnionEcommerce.Application.Implementations;
+global using OnionEcommerce.Application.Interfaces;
+global using OnionEcommerce.Application.Mappers;
+global using OnionEcommerce.Application.Mappers.Interfaces;
