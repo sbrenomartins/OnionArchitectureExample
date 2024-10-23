@@ -12,6 +12,13 @@ builder.Services.AddDomainServices();
 builder.Services.AddApplicationServices();
 builder.Services.AddMappers();
 builder.Services.AddControllers();
+builder.Services.AddHealthChecks()
+                .AddRavenDB(setup =>
+                {
+                    setup.Database = builder.Configuration.GetSection("RavenDbSettings:DatabaseName").Value;
+                    setup.Urls = [builder.Configuration.GetSection("RavenDbSettings:Url").Value!];
+                });
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -36,5 +43,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapHealthChecks("/health");
 
 app.Run();
